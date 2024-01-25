@@ -1,20 +1,391 @@
-<main class="details not-team logged-in">
-<div id="react-page"></div>
 
-  <input type="checkbox" class="modal-closing-trick" id="modal-closing-trick">
+<!DOCTYPE html>
+<html lang="en" >
 
-  <div class="overlay noscript-overlay" style="display: block;"></div>
+<head>
+  <meta charset="UTF-8">
+  
 
-  <div class="modal modal-message group modal-warning">
+    <link rel="apple-touch-icon" type="image/png" href="https://cpwebassets.codepen.io/assets/favicon/apple-touch-icon-5ae1a0698dcc2402e9712f7d01ed509a57814f994c660df9f7a952f3060705ee.png" />
 
-    <div class="modal-title">CodePen doesn't work very well without JavaScript.</div>
+    <meta name="apple-mobile-web-app-title" content="CodePen">
 
-    <p>We're all for progressive enhancement, but CodePen is a bit unique in that it's all about writing and showing front end code, including JavaScript. It's required to use most of the features of CodePen.</p>
+    <link rel="shortcut icon" type="image/x-icon" href="https://cpwebassets.codepen.io/assets/favicon/favicon-aec34940fbc1a6e787974dcd360f2c6b63348d4b1f4e06c77743096d55480f33.ico" />
 
-    <p>Need to know how to enable it? <a href="http://enable-javascript.com/" target="_blank" rel="noopener">Go here.</a></p>
+    <link rel="mask-icon" type="image/x-icon" href="https://cpwebassets.codepen.io/assets/favicon/logo-pin-b4b4269c16397ad2f0f7a01bcdf513a1994f4c94b8af2f191c09eb0d601762b1.svg" color="#111" />
 
-    <label class="button button-medium" for="modal-closing-trick">Close this, use anyway.</label>
+
+
+  <meta name="robots" content="noindex">
+  
+    <script src="https://cpwebassets.codepen.io/assets/common/stopExecutionOnTimeout-2c7831bb44f98c1391d6a4ffda0e1fd302503391ca806e7fcc7b9b87197aec26.js"></script>
+
+
+  <title>CodePen - Create Token</title>
+
+    <link rel="canonical" href="https://codepen.io/sschepis/pen/GReozww/cc1ef796134934f2119c9c13127d604e">
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+
+  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css'>
+  
+
+  
+  
+  
+</head>
+
+<body translate="no">
+  <!--
+Implement Real-Time Validation: Add client-side scripts to validate form inputs in real-time, providing immediate feedback to users before they submit the form.
+
+Incorporate Modals for Actions: For actions like 'Edit' and 'Delete', implement modal dialogs that provide a user-friendly interface for confirming these actions or editing details inline.
+
+Add Tooltips and Help Text: Introduce tooltips or help text for complex fields to guide users through the token creation process.
+
+Responsive Design Testing: Conduct thorough testing of the page at various screen sizes to ensure a consistent and usable experience across all devices.
+
+Accessibility Enhancements: Ensure that all interactive elements are accessible, including proper labeling for screen readers and keyboard navigation support.
+
+Data Visualization: If relevant, add charts or graphs to the inventory section to visualize token distribution or other analytics.
+
+Batch Operations: Allow users to select multiple tokens and perform batch operations, like deleting or updating in bulk.
+
+Loading States: Add loading spinners or placeholders to indicate when data is being fetched or processed.
+
+Empty States: Design user-friendly messages or graphics for when there are no tokens to display.
+
+Advanced Search Functionality: Implement a more advanced search that can filter through multiple fields and criteria.
+
+User Feedback and Notifications: Develop a notification system to inform users of the system's state, such as successful operations, errors, or updates.
+
+Undo Actions: Provide the ability to undo certain actions, giving users a chance to revert changes they made accidentally.
+
+Documentation and Guides: Provide inline documentation or a help section to assist users in understanding how to use the page effectively.
+
+Internationalization: If your user base is international, consider adding support for multiple languages.
+
+Security Features: Ensure that all form submissions are secure and protect against CSRF attacks and other vulnerabilities.
+
+Integration with Backend Services: Prepare the page for integration with APIs or backend services that will handle the business logic, such as token creation, inventory management, and persistence.
+
+User Testing: Conduct user testing sessions to gather feedback on the usability of the page and identify areas for improvement.
+-->
+<body class="bg-gray-900 text-white">
+  <!-- Navigation Bar -->
+  <nav class="bg-gray-800">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16">
+        <!-- Logo and Brand Name -->
+        <div class="flex items-center">
+          <div class="flex-shrink-0">
+            <img class="h-8 w-8" src="https://placehold.co/40x40" alt="Logo">
+          </div>
+          <div class="hidden md:block">
+            <div class="ml-10 flex items-baseline space-x-4">
+              <!-- Navigation Links -->
+              <a href="/dashboard" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Dashboard</a>
+              <a href="/tokens" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Tokens</a>
+              <a href="/campaigns" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Campaigns</a>
+              <a href="/reports" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Reports</a>
+              <!-- More links as needed -->
+            </div>
+          </div>
+        </div>
+        <!-- Profile/Settings Dropdown -->
+        <div class="ml-3 relative">
+          <div>
+            <button class="max-w-xs bg-gray-800 rounded-full flex items-center text-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white" id="user-menu" aria-haspopup="true">
+              <span class="sr-only">Open user menu</span>
+              <img class="h-8 w-8 rounded-full" src="https://placehold.co/40x40" alt="">
+            </button>
+          </div>
+          <!-- Dropdown Menu -->
+          <div class="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5 hidden" role="menu" aria-orientation="vertical" aria-labelledby="user-menu">
+            <a href="/profile" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem">Your Profile</a>
+            <a href="/settings" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem">Settings</a>
+            <a href="/logout" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem">Sign out</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Rest of your page content -->
+  <div class="p-6">
+
+     <!-- Token Creation Form -->
+  <div class="max-w-6xl mx-auto p-6">
+
+    <!-- Token Creation Section -->
+    <div class="bg-gray-800 rounded-2xl p-6 mb-8 shadow-lg">
+      <h2 class="text-2xl font-semibold mb-6 text-gray-300">Create New Token</h2>
+      <form id="tokenCreationForm" class="space-y-6">
+
+        <!-- Token Metadata Inputs -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+
+          <!-- Token Name Input -->
+          <div>
+            <label for="tokenName" class="block text-sm font-medium text-gray-400">Token Name</label>
+            <input type="text" id="tokenName" name="tokenName" required class="mt-1 block w-full rounded-md bg-gray-700 text-white border-gray-600 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
+          </div>
+
+          <!-- Token Description Input -->
+          <div>
+            <label for="tokenDescription" class="block text-sm font-medium text-gray-400">Description</label>
+            <textarea id="tokenDescription" name="tokenDescription" rows="4" required class="mt-1 block w-full rounded-md bg-gray-700 text-white border-gray-600 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"></textarea>
+          </div>
+
+          <!-- Additional Token Property Inputs -->
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+
+            <!-- Expiry Date Input -->
+            <div>
+              <label for="expiryDate" class="block text-sm font-medium text-gray-400">Expiry Date (optional)</label>
+              <input type="date" id="expiryDate" name="expiryDate" class="mt-1 block w-full rounded-md bg-gray-700 text-white border-gray-600 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
+            </div>
+
+            <!-- Token Usage Rules -->
+            <div class="md:col-span-2">
+              <label for="usageRules" class="block text-sm font-medium text-gray-400">Usage Rules</label>
+              <select id="usageRules" class="mt-1 block w-full rounded-md bg-gray-700 text-white border-gray-600 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
+                <option value="access_control">Access Control</option>
+                <option value="time_bound">Time-bound</option>
+                <option value="usage_limit">Usage Limit</option>
+                <!-- Other rule types -->
+              </select>
+            </div>
+
+            <!-- Token Type Selector -->
+            <div>
+              <label for="tokenType" class="block text-sm font-medium text-gray-400">Token Type</label>
+              <select id="tokenType" name="tokenType" class="mt-1 block w-full rounded-md bg-gray-700 text-white border-gray-600 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
+                <option value="subscription">Subscription</option>
+                <option value="access">Access</option>
+                <option value="discount">Discount</option>
+                <option value="custom">Custom</option>
+              </select>
+            </div>
+
+            <!-- Additional Properties -->
+            <div class="md:col-span-2">
+              <label for="additionalProperties" class="block text-sm font-medium text-gray-400">Additional Properties</label>
+              <textarea id="additionalProperties" name="additionalProperties" rows="3" class="mt-1 block w-full rounded-md bg-gray-700 text-white border-gray-600 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"></textarea>
+            </div>
+          </div>
+
+          <!-- Action Buttons -->
+          <div class="flex justify-end space-x-3 md:col-span-2">
+            <button type="button" class="bg-indigo-500 hover:bg-indigo-600 text-white font-bold py-2 px-4 rounded transition duration-300">Preview</button>
+            <button type="submit" class="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded transition duration-300">Mint Token</button>
+          </div>
+        </div>
+      </form>
+    </div>
+
+    <!-- Usage Rules Dynamic Section -->
+    <div id="dynamicUsageRules" class="grid grid-cols-1 gap-6">
+      <!-- Placeholder for dynamic input fields based on selected usage rules -->
+    </div>
+
+    <!-- Token Inventory Section -->
+    <div class="bg-gray-800 rounded-2xl p-6 mb-8 shadow-lg">
+      <h2 class="text-2xl font-semibold mb-6 text-gray-300">Token Inventory</h2>
+
+      <!-- Advanced Filtering Options -->
+      <div class="flex flex-wrap justify-between items-center mb-4">
+        <!-- Search Input -->
+        <div class="w-full md:w-1/3 mb-4 md:mb-0">
+          <input type="text" id="searchTokens" placeholder="Search by token name..." class="rounded-md bg-gray-700 text-white border-gray-600 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
+        </div>
+        <!-- Filtering and Sorting Selectors -->
+        <div class="flex space-x-2">
+          <!-- Filter Dropdown -->
+          <select id="filterType" class="rounded-md bg-gray-700 text-white border-gray-600 focus:border-indigo-300">
+            <option>Filter by Type</option>
+            <option>Subscription</option>
+            <option>Access</option>
+            <option>Discount</option>
+          </select>
+          <!-- Sort Dropdown -->
+          <select id="sortTokens" 
+                  class="rounded-md bg-gray-700 text-white border-gray-600 focus:border-indigo-300">
+            <option>Sort By</option>
+            <option>Most Recent</option>
+            <option>Oldest</option>
+            <option>Most Used</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Token List Table -->
+      <div class="overflow-x-auto">
+        <table class="min-w-full text-sm divide-y divide-gray-700">
+          <thead class="text-xs text-gray-400 uppercase bg-gray-700">
+            <tr>
+              <th scope="col" class="px-6 py-3">Token Name</th>
+              <th scope="col" class="px-6 py-3">Type</th>
+              <th scope="col" class="px-6 py-3">Amount</th>
+              <th scope="col" class="px-6 py-3">Actions</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-gray-700 text-gray-300">
+<!-- Token List Table Rows -->
+<tbody class="divide-y divide-gray-700 text-gray-300">
+    <!-- Example Row 1 -->
+    <tr>
+        <td class="px-6 py-4">Token Alpha</td>
+        <td class="px-6 py-4">Subscription</td>
+        <td class="px-6 py-4">100</td>
+        <td class="px-6 py-4 text-right">
+            <button class="text-indigo-500 hover:text-indigo-600">Edit</button>
+            <button class="text-red-500 hover:text-red-600 ml-4">Delete</button>
+        </td>
+    </tr>
+    <!-- Example Row 2 -->
+    <tr>
+        <td class="px-6 py-4">Token Beta</td>
+        <td class="px-6 py-4">Access</td>
+        <td class="px-6 py-4">250</td>
+        <td class="px-6 py-4 text-right">
+            <button class="text-indigo-500 hover:text-indigo-600">Edit</button>
+            <button class="text-red-500 hover:text-red-600 ml-4">Delete</button>
+        </td>
+    </tr>
+    <!-- Example Row 3 -->
+    <tr>
+        <td class="px-6 py-4">Token Gamma</td>
+        <td class="px-6 py-4">Discount</td>
+        <td class="px-6 py-4">500</td>
+        <td class="px-6 py-4 text-right">
+            <button class="text-indigo-500 hover:text-indigo-600">Edit</button>
+            <button class="text-red-500 hover:text-red-600 ml-4">Delete</button>
+        </td>
+    </tr>
+    <!-- More rows can be added dynamically from backend data -->
+</tbody>
+
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Pagination -->
+      <nav class="mt-4" aria-label="Table navigation">
+        <ul class="inline-flex items-center">
+          <li><button class="px-3 py-1 rounded-md rounded-l-lg bg-gray-700 text-white" rel="prev">Previous</button></li>
+          <!-- Placeholder for pagination numbers -->
+          <li><button class="px-3 py-1 rounded-md bg-gray-700 text-white">1</button></li>
+          <li><button class="px-3 py-1 rounded-md bg-gray-700 text-white">2</button></li>
+          <li><span class="px-3 py-1">...</span></li>
+          <li><button class="px-3 py-1 rounded-md bg-gray-700 text-white">10</button></li>
+          <li><button class="px-3 py-1 rounded-md rounded-r-lg bg-gray-700 text-white" rel="next">Next</button></li>
+        </ul>
+      </nav>
+
+      <!-- Feedback Messages -->
+      <div id="feedbackMessages" class="mt-4 hidden">
+        <p class="text-green-500">Action successful</p>
+        <!-- More feedback messages here -->
+      </div>
+
+    </div>
+
+    <div id="feedbackMessages" class="hidden">
+      <p class="text-green-500">Token created successfully!</p>
+      <!-- More feedback messages here -->
+    </div>
 
   </div>
-</main>
 
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+        <div class="flex justify-between items-center">
+          <div>
+            <p>&copy; 2024 Your Company Name. All Rights Reserved.</p>
+          </div>
+          <div class="flex space-x-4">
+            <a href="/about" class="hover:underline">About</a>
+            <a href="/privacy-policy" class="hover:underline">Privacy Policy</a>
+            <a href="/terms-of-service" class="hover:underline">Terms of Service</a>
+            <a href="/contact" class="hover:underline">Contact Us</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+  </div>
+  <script src='https://cdn.jsdelivr.net/npm/chart.js'></script>
+      <script id="rendered-js" type="module">
+// import { Chart } from "https://esm.sh/chart.js";
+
+const ctx = document.getElementById("salesTrendChart").getContext("2d");
+const salesTrendChart = new Chart(ctx, {
+  type: "line",
+  data: {
+    labels: ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"],
+    datasets: [
+    {
+      label: "Weekly Sales",
+      data: [12, 19, 3, 5, 2, 3, 9],
+      backgroundColor: "rgba(75, 192, 192, 0.2)",
+      borderColor: "rgba(75, 192, 192, 1)",
+      borderWidth: 1 }] },
+
+
+
+  options: {
+    scales: {
+      y: {
+        beginAtZero: true } } } });
+
+
+
+
+
+// Add event listeners for buttons to update the chart
+document.querySelectorAll(".time-range-selector button").forEach(button => {
+  button.addEventListener("click", e => {
+    // Logic to update chart based on selected time range
+    // This would involve fetching new data and updating the chart
+  });
+});
+
+const tokenCtx = document.getElementById("tokenUsageChart").getContext("2d");
+const tokenUsageChart = new Chart(tokenCtx, {
+  type: "bar",
+  data: {
+    labels: ["Token A", "Token B", "Token C", "Token D"],
+    datasets: [
+    {
+      label: "Usage Count",
+      data: [50, 75, 150, 100],
+      backgroundColor: [
+      "rgba(255, 99, 132, 0.2)",
+      "rgba(54, 162, 235, 0.2)",
+      "rgba(255, 206, 86, 0.2)",
+      "rgba(75, 192, 192, 0.2)"],
+
+      borderColor: [
+      "rgba(255, 99, 132, 1)",
+      "rgba(54, 162, 235, 1)",
+      "rgba(255, 206, 86, 1)",
+      "rgba(75, 192, 192, 1)"],
+
+      borderWidth: 1 }] },
+
+
+
+  options: {
+    scales: {
+      y: {
+        beginAtZero: true } } } });
+//# sourceURL=pen.js
+    </script>
+
+  
+  <script src="https://cpwebassets.codepen.io/assets/editor/iframe/iframeRefreshCSS-44fe83e49b63affec96918c9af88c0d80b209a862cf87ac46bc933074b8c557d.js"></script>
+</body>
+
+</html>

@@ -1,20 +1,256 @@
-<main class="details not-team logged-in">
-<div id="react-page"></div>
 
-  <input type="checkbox" class="modal-closing-trick" id="modal-closing-trick">
+<!DOCTYPE html>
+<html lang="en" >
 
-  <div class="overlay noscript-overlay" style="display: block;"></div>
+<head>
+  <meta charset="UTF-8">
+  
 
-  <div class="modal modal-message group modal-warning">
+    <link rel="apple-touch-icon" type="image/png" href="https://cpwebassets.codepen.io/assets/favicon/apple-touch-icon-5ae1a0698dcc2402e9712f7d01ed509a57814f994c660df9f7a952f3060705ee.png" />
 
-    <div class="modal-title">CodePen doesn't work very well without JavaScript.</div>
+    <meta name="apple-mobile-web-app-title" content="CodePen">
 
-    <p>We're all for progressive enhancement, but CodePen is a bit unique in that it's all about writing and showing front end code, including JavaScript. It's required to use most of the features of CodePen.</p>
+    <link rel="shortcut icon" type="image/x-icon" href="https://cpwebassets.codepen.io/assets/favicon/favicon-aec34940fbc1a6e787974dcd360f2c6b63348d4b1f4e06c77743096d55480f33.ico" />
 
-    <p>Need to know how to enable it? <a href="http://enable-javascript.com/" target="_blank" rel="noopener">Go here.</a></p>
+    <link rel="mask-icon" type="image/x-icon" href="https://cpwebassets.codepen.io/assets/favicon/logo-pin-b4b4269c16397ad2f0f7a01bcdf513a1994f4c94b8af2f191c09eb0d601762b1.svg" color="#111" />
 
-    <label class="button button-medium" for="modal-closing-trick">Close this, use anyway.</label>
+
+
+  <meta name="robots" content="noindex">
+  
+  
+
+  <title>CodePen - A Pen by Sebastian Schepis</title>
+
+    <link rel="canonical" href="https://codepen.io/sschepis/pen/NWJxJOb/261e8374bbd56a85085269147f0a280d">
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+
+  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css'>
+  
+<style>
+@media (max-width: 640px) {
+  /* Tailwind's 'sm' breakpoint */
+  /* Adjust layout and sizing for mobile devices */
+}
+</style>
+
+  
+  
+  
+</head>
+
+<body translate="no">
+  <!--
+
+-->
+
+<body class="bg-gray-900 text-white">
+
+  <!-- Navigation Bar -->
+  <nav class="bg-gray-800">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16">
+
+        <!-- Logo and Brand Name -->
+        <div class="flex items-center">
+          <div class="flex-shrink-0">
+            <img class="h-8 w-8" src="https://placehold.co/40x40" alt="Logo">
+          </div>
+          <div class="hidden md:block">
+            <div class="ml-10 flex items-baseline space-x-4">
+
+              <!-- Navigation Links -->
+              <a href="/dashboard" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">
+                Dashboard</a>
+              <a href="/tokens" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">
+                Tokens</a>
+              <a href="/campaigns" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">
+                Campaigns</a>
+              <a href="/reports" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">
+                Reports</a>
+
+              <!-- More links as needed -->
+            </div>
+          </div>
+        </div>
+
+        <!-- Profile/Settings Dropdown -->
+        <div class="ml-3 relative">
+          <div>
+            <button class="max-w-xs bg-gray-800 rounded-full flex items-center text-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white" id="user-menu" aria-haspopup="true">
+              <span class="sr-only">Open user menu</span>
+              <img class="h-8 w-8 rounded-full" src="https://placehold.co/40x40" alt="">
+            </button>
+          </div>
+
+          <!-- Dropdown Menu -->
+          <div class="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5 hidden" role="menu" aria-orientation="vertical" aria-labelledby="user-menu">
+            <a href="/profile" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem">Your Profile</a>
+            <a href="/settings" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem">Settings</a>
+            <a href="/logout" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem">Sign out</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+
+    <!-- Content Gating Setup Section -->
+    <div class="bg-gray-800 rounded-lg shadow px-5 py-6 sm:px-6 mb-8">
+      <h2 class="text-xl font-semibold mb-6 text-gray-300">Content Gating Setup</h2>
+
+      <!-- Gated Content Configuration Form -->
+      <form id="contentGatingForm" class="mb-6">
+        <!-- Content Title -->
+        <div class="mb-4">
+          <label for="contentTitle" class="block text-sm font-medium text-gray-400">Content Title</label>
+          <input type="text" id="contentTitle" name="contentTitle" required class="mt-1 block w-full rounded-md bg-gray-700 border border-gray-600 text-white focus:outline-none focus:border-indigo-500">
+        </div>
+
+        <!-- Description -->
+        <div class="mb-4">
+          <label for="contentDescription" class="block text-sm font-medium text-gray-400">Description</label>
+          <textarea id="contentDescription" name="contentDescription" rows="3" class="mt-1 block w-full rounded-md bg-gray-700 border border-gray-600 text-white focus:outline-none focus:border-indigo-500"></textarea>
+        </div>
+
+        <!-- Access Token Selection -->
+        <div class="mb-4">
+          <label for="accessToken" class="block text-sm font-medium text-gray-400">Access Token</label>
+          <select id="accessToken" name="accessToken" class="mt-1 block w-full rounded-md bg-gray-700 border border-gray-600 text-white focus:outline-none focus:border-indigo-500">
+            <!-- Options dynamically populated from available tokens -->
+          </select>
+        </div>
+
+        <!-- Content URL/Upload -->
+        <div class="mb-4">
+          <label for="contentUrl" class="block text-sm font-medium text-gray-400">Content URL/Upload</label>
+          <input type="text" id="contentUrl" name="contentUrl" class="mt-1 block w-full rounded-md bg-gray-700 border border-gray-600 text-white focus:outline-none focus:border-indigo-500">
+          <!-- Alternatively, provide an upload button for content files -->
+        </div>
+
+        <!-- Activation Toggle -->
+        <div class="mb-6">
+          <label for="contentActive" class="flex items-center cursor-pointer">
+            <div class="relative">
+              <input type="checkbox" id="contentActive" name="contentActive" class="sr-only">
+              <div class="block bg-gray-600 w-14 h-8 rounded-full"></div>
+              <div class="dot absolute left-1 top-1 bg-white w-6 h-6 rounded-full transition"></div>
+            </div>
+            <div class="ml-3 text-sm font-medium text-gray-400">Active</div>
+          </label>
+        </div>
+
+        <!-- Submit Button -->
+        <button type="submit" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Save Content</button>
+      </form>
+
+      <!-- List/Grid of Existing Gated Content -->
+      <div>
+        <h3 class="text-lg font-semibold text-gray-300 mb-4">Existing Gated Content</h3>
+        <!-- Dynamic List/Grid Placeholder -->
+        <!-- Include Title, Token Required, Status, and Actions like Edit/Delete -->
+      </div>
+    </div>
+
+    <!-- Subscriber Management Section -->
+    <div class="bg-gray-800 rounded-lg shadow px-5 py-6 sm:px-6">
+      <h2 class="text-xl font-semibold mb-6 text-gray-300">Subscriber Management</h2>
+
+      <!-- Search and Filter Bar -->
+      <div class="mb-4">
+        <input type="search" placeholder="Search subscribers..." class="w-full p-2 rounded-md bg-gray-700 border border-gray-600 text-white focus:outline-none focus:border-indigo-500">
+        <!-- Additional filters can be implemented here -->
+      </div>
+
+      <!-- Subscriber List Table -->
+      <div class="overflow-x-auto">
+        <table class="min-w-full bg-gray-700 divide-y divide-gray-600 rounded-md overflow-hidden">
+          <thead class="bg-gray-600">
+            <tr>
+              <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-400 uppercase tracking-wider">
+                Subscriber Name
+              </th>
+              <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-400 uppercase tracking-wider">
+                Access Token
+              </th>
+              <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-400 uppercase tracking-wider">
+                Content Accessed
+              </th>
+              <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-400 uppercase tracking-wider">
+                Actions
+              </th>
+            </tr>
+          </thead>
+          <tbody class="bg-gray-700 divide-y divide-gray-600">
+            <!-- Dynamic Rows for Subscriber Data -->
+            <!-- Sample Row -->
+            <tr>
+              <td class="px-6 py-4 whitespace-nowrap">
+                Jane Doe
+              </td>
+              <td class="px-6 py-4 whitespace-nowrap">
+                Token XYZ
+              </td>
+              <td class="px-6 py-4 whitespace-nowrap">
+                5 Articles, 3 Videos
+              </td>
+              <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+                <a href="#" class="text-indigo-600 hover:text-indigo-900">View Details</a>
+                <a href="#" class="text-red-600 hover:text-red-900 ml-4">Revoke Access</a>
+              </td>
+            </tr>
+            <!-- Additional rows -->
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Pagination Controls -->
+      <div class="mt-4 flex justify-between items-center">
+        <span class="text-sm text-gray-300">
+          Showing 1 to 10 of 200 entries
+        </span>
+        <nav aria-label="Pagination">
+          <ul class="inline-flex items-center space-x-2">
+            <li><button class="px-3 py-1 rounded-md bg-gray-700 text-white hover:bg-gray-600">Prev</button></li>
+            <!-- Page Numbers -->
+            <li><button class="px-3 py-1 rounded-md bg-gray-700 text-white hover:bg-gray-600">1</button></li>
+            <li><button class="px-3 py-1 rounded-md bg-gray-700 text-white hover:bg-gray-600">2</button></li>
+            <li>...</li>
+            <li><button class="px-3 py-1 rounded-md bg-gray-700 text-white hover:bg-gray-600">5</button></li>
+            <li><button class="px-3 py-1 rounded-md bg-gray-700 text-white hover:bg-gray-600">Next</button></li>
+          </ul>
+        </nav>
+      </div>
+
+
+    </div>
 
   </div>
-</main>
 
+  <!-- Footer -->
+  <footer class="bg-gray-800 text-white">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+      <div class="flex justify-between items-center">
+        <div>
+          <p>&copy; 2024 Your Company Name. All Rights Reserved.</p>
+        </div>
+        <div class="flex space-x-4">
+          <a href="/about" class="hover:underline">About</a>
+          <a href="/privacy-policy" class="hover:underline">Privacy Policy</a>
+          <a href="/terms-of-service" class="hover:underline">Terms of Service</a>
+          <a href="/contact" class="hover:underline">Contact Us</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+</body>
+  
+  
+  
+  <script src="https://cpwebassets.codepen.io/assets/editor/iframe/iframeRefreshCSS-44fe83e49b63affec96918c9af88c0d80b209a862cf87ac46bc933074b8c557d.js"></script>
+</body>
+
+</html>

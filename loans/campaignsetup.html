@@ -1,21 +1,354 @@
 
-<main class="details not-team logged-in">
-<div id="react-page"></div>
+<!DOCTYPE html>
+<html lang="en" >
 
-  <input type="checkbox" class="modal-closing-trick" id="modal-closing-trick">
+<head>
+  <meta charset="UTF-8">
+  
 
-  <div class="overlay noscript-overlay" style="display: block;"></div>
+    <link rel="apple-touch-icon" type="image/png" href="https://cpwebassets.codepen.io/assets/favicon/apple-touch-icon-5ae1a0698dcc2402e9712f7d01ed509a57814f994c660df9f7a952f3060705ee.png" />
 
-  <div class="modal modal-message group modal-warning">
+    <meta name="apple-mobile-web-app-title" content="CodePen">
 
-    <div class="modal-title">CodePen doesn't work very well without JavaScript.</div>
+    <link rel="shortcut icon" type="image/x-icon" href="https://cpwebassets.codepen.io/assets/favicon/favicon-aec34940fbc1a6e787974dcd360f2c6b63348d4b1f4e06c77743096d55480f33.ico" />
 
-    <p>We're all for progressive enhancement, but CodePen is a bit unique in that it's all about writing and showing front end code, including JavaScript. It's required to use most of the features of CodePen.</p>
+    <link rel="mask-icon" type="image/x-icon" href="https://cpwebassets.codepen.io/assets/favicon/logo-pin-b4b4269c16397ad2f0f7a01bcdf513a1994f4c94b8af2f191c09eb0d601762b1.svg" color="#111" />
 
-    <p>Need to know how to enable it? <a href="http://enable-javascript.com/" target="_blank" rel="noopener">Go here.</a></p>
 
-    <label class="button button-medium" for="modal-closing-trick">Close this, use anyway.</label>
+
+  <meta name="robots" content="noindex">
+  
+    <script src="https://cpwebassets.codepen.io/assets/common/stopExecutionOnTimeout-2c7831bb44f98c1391d6a4ffda0e1fd302503391ca806e7fcc7b9b87197aec26.js"></script>
+
+
+  <title>CodePen - Campaign Management</title>
+
+    <link rel="canonical" href="https://codepen.io/sschepis/pen/mdoVoJv/cc051f9ca6a51b3c1174e96b0e9adbd4">
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+
+  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css'>
+  
+
+  
+  
+  
+</head>
+
+<body translate="no">
+  <!--
+
+-->
+
+<body class="bg-gray-900 text-white">
+
+  <!-- Navigation Bar -->
+  <nav class="bg-gray-800">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16">
+        <!-- Logo and Brand Name -->
+        <div class="flex items-center">
+          <div class="flex-shrink-0">
+            <img class="h-8 w-8" src="https://placehold.co/40x40" alt="Logo">
+          </div>
+          <div class="hidden md:block">
+            <div class="ml-10 flex items-baseline space-x-4">
+              <!-- Navigation Links -->
+              <a href="/dashboard" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Dashboard</a>
+              <a href="/tokens" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Tokens</a>
+              <a href="/campaigns" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Campaigns</a>
+              <a href="/reports" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Reports</a>
+              <!-- More links as needed -->
+            </div>
+          </div>
+        </div>
+        <!-- Profile/Settings Dropdown -->
+        <div class="ml-3 relative">
+          <div>
+            <button class="max-w-xs bg-gray-800 rounded-full flex items-center text-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white" id="user-menu" aria-haspopup="true">
+              <span class="sr-only">Open user menu</span>
+              <img class="h-8 w-8 rounded-full" src="https://placehold.co/40x40" alt="">
+            </button>
+          </div>
+          <!-- Dropdown Menu -->
+          <div class="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5 hidden" role="menu" aria-orientation="vertical" aria-labelledby="user-menu">
+            <a href="/profile" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem">Your Profile</a>
+            <a href="/settings" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem">Settings</a>
+            <a href="/logout" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem">Sign out</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Rest of your page content -->
+  <div class="p-6">
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+        <!-- Campaign Setup Section -->
+        <div class="bg-gray-800 rounded-lg shadow px-5 py-6 sm:px-6 mb-8">
+          <h2 class="text-xl font-semibold mb-6 text-gray-300">Campaign Setup</h2>
+
+          <!-- Campaign Creation Form -->
+          <form id="campaignCreationForm">
+            <!-- Campaign Name -->
+            <div class="mb-4">
+              <label for="campaignName" class="block text-sm font-medium text-gray-400">Campaign Name</label>
+              <input type="text" id="campaignName" name="campaignName" required class="mt-1 block w-full rounded-md bg-gray-700 border border-gray-600 text-white focus:outline-none focus:border-indigo-500">
+            </div>
+
+            <!-- Campaign Description -->
+            <div class="mb-4">
+              <label for="campaignDescription" class="block text-sm font-medium text-gray-400">Description</label>
+              <textarea id="campaignDescription" name="campaignDescription" rows="4" class="mt-1 block w-full rounded-md bg-gray-700 border border-gray-600 text-white focus:outline-none focus:border-indigo-500"></textarea>
+            </div>
+
+            <!-- Start & End Dates -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+              <div>
+                <label for="startDate" class="block text-sm font-medium text-gray-400">Start Date</label>
+                <input type="date" id="startDate" name="startDate" required class="mt-1 block w-full rounded-md bg-gray-700 border border-gray-600 text-white focus:outline-none focus:border-indigo-500">
+              </div>
+              <div>
+                <label for="endDate" class="block text-sm font-medium text-gray-400">End Date</label>
+                <input type="date" id="endDate" name="endDate" required class="mt-1 block w-full rounded-md bg-gray-700 border border-gray-600 text-white focus:outline-none focus:border-indigo-500">
+              </div>
+            </div>
+
+            <!-- Token Selection -->
+            <div class="mb-4">
+              <label for="tokens" class="block text-sm font-medium text-gray-400">Select Tokens</label>
+              <select id="tokens" name="tokens" multiple class="mt-1 block w-full rounded-md bg-gray-700 border border-gray-600 text-white focus:outline-none focus:border-indigo-500">
+                <!-- Options dynamically populated from available tokens -->
+              </select>
+            </div>
+
+            <!-- Objectives -->
+            <div class="mb-4">
+              <label for="objectives" class="block text-sm font-medium text-gray-400">Objectives</label>
+              <input type="text" id="objectives" name="objectives" required class="mt-1 block w-full rounded-md bg-gray-700 border border-gray-600 text-white focus:outline-none focus:border-indigo-500">
+            </div>
+
+            <!-- Budget Allocation -->
+            <div class="mb-4">
+              <label for="budget" class="block text-sm font-medium text-gray-400">Budget Allocation</label>
+              <input type="number" id="budget" name="budget" required class="mt-1 block w-full rounded-md bg-gray-700 border border-gray-600 text-white focus:outline-none focus:border-indigo-500">
+            </div>
+
+            <!-- Action Buttons -->
+            <div class="flex justify-end space-x-3">
+              <button type="button" class="bg-gray-600 hover:bg-gray-500 text-white font-bold py-2 px-4 rounded transition duration-300">Save Draft</button>
+              <button type="submit" class="bg-green-500 hover:bg-green-400 text-white font-bold py-2 px-4 rounded transition duration-300">Launch Campaign</button>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <!-- Campaign Tracking Section -->
+      <div class="bg-gray-800 rounded-lg shadow px-5 py-6 sm:px-6">
+        <h2 class="text-xl font-semibold mb-6 text-gray-300">Campaign Tracking</h2>
+
+        <!-- Real-Time Performance Dashboard -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+          <!-- KPI Cards -->
+          <div class="bg-gray-700 p-4 rounded-lg">
+            <h3 class="text-lg font-medium text-white">Total Clicks</h3>
+            <p class="text-2xl font-semibold text-indigo-300">1,234</p>
+            <!-- More KPIs like 'Total Conversions', 'Engagement Rate', etc. -->
+          </div>
+
+          <!-- Interactive Charts -->
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+            <!-- Conversion Rate Chart -->
+            <div class="bg-gray-700 p-4 rounded-lg">
+              <h3 class="text-lg font-medium text-white">Conversion Rate Over Time</h3>
+              <canvas id="conversionRateChart" class="mt-4 h-64"></canvas>
+            </div>
+
+            <!-- Token Distribution Chart -->
+            <div class="bg-gray-700 p-4 rounded-lg">
+              <h3 class="text-lg font-medium text-white">Token Distribution</h3>
+              <canvas id="tokenDistributionChart" class="mt-4 h-64"></canvas>
+            </div>
+          </div>
+        </div>
+
+        <!-- Token Distribution Table -->
+        <div class="mb-6">
+          <h3 class="text-lg font-medium text-gray-300 mb-4">Token Distribution</h3>
+          <div class="overflow-x-auto">
+            <table class="min-w-full bg-gray-700 divide-y divide-gray-600 rounded-md overflow-hidden">
+              <thead class="bg-gray-600">
+                <tr>
+                  <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-400 uppercase tracking-wider">
+                    Token Name
+                  </th>
+                  <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-400 uppercase tracking-wider">
+                    Distributed
+                  </th>
+                  <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-400 uppercase tracking-wider">
+                    Redeemed
+                  </th>
+                  <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-400 uppercase tracking-wider">
+                    Remaining
+                  </th>
+                </tr>
+              </thead>
+              <tbody class="bg-gray-700 divide-y divide-gray-600">
+                <!-- Sample Row 1 -->
+                <tr>
+                  <td class="px-6 py-4 whitespace-nowrap">
+                    Alpha Token
+                  </td>
+                  <td class="px-6 py-4 whitespace-nowrap">
+                    1000
+                  </td>
+                  <td class="px-6 py-4 whitespace-nowrap">
+                    600
+                  </td>
+                  <td class="px-6 py-4 whitespace-nowrap">
+                    400
+                  </td>
+                </tr>
+                <!-- Sample Row 2 -->
+                <tr>
+                  <td class="px-6 py-4 whitespace-nowrap">
+                    Beta Token
+                  </td>
+                  <td class="px-6 py-4 whitespace-nowrap">
+                    1500
+                  </td>
+                  <td class="px-6 py-4 whitespace-nowrap">
+                    800
+                  </td>
+                  <td class="px-6 py-4 whitespace-nowrap">
+                    700
+                  </td>
+                </tr>
+                <!-- Sample Row 3 -->
+                <tr>
+                  <td class="px-6 py-4 whitespace-nowrap">
+                    Gamma Token
+                  </td>
+                  <td class="px-6 py-4 whitespace-nowrap">
+                    2000
+                  </td>
+                  <td class="px-6 py-4 whitespace-nowrap">
+                    500
+                  </td>
+                  <td class="px-6 py-4 whitespace-nowrap">
+                    1500
+                  </td>
+                </tr>
+                <!-- Additional rows as needed -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Additional analytics and tracking tools as needed -->
+      </div>
+
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+        <div class="flex justify-between items-center">
+          <div>
+            <p>&copy; 2024 Your Company Name. All Rights Reserved.</p>
+          </div>
+          <div class="flex space-x-4">
+            <a href="/about" class="hover:underline">About</a>
+            <a href="/privacy-policy" class="hover:underline">Privacy Policy</a>
+            <a href="/terms-of-service" class="hover:underline">Terms of Service</a>
+            <a href="/contact" class="hover:underline">Contact Us</a>
+          </div>
+        </div>
+      </div>
+    </footer>
 
   </div>
-</main>
 
+</body>
+  <script src='https://cdn.jsdelivr.net/npm/chart.js'></script>
+      <script id="rendered-js" >
+// Function to open the modal
+function openModal() {
+  document.getElementById('addAffiliateModal').classList.remove('hidden');
+}
+
+// Function to close the modal
+document.querySelectorAll('.close-modal').forEach(function (element) {
+  element.onclick = function () {
+    document.getElementById('addAffiliateModal').classList.add('hidden');
+  };
+});
+
+
+// Wait for the DOM to load
+document.addEventListener('DOMContentLoaded', function () {
+  // Sample data for conversion rate chart
+  const conversionRateCtx = document.getElementById('conversionRateChart').getContext('2d');
+  const conversionRateChart = new Chart(conversionRateCtx, {
+    type: 'line',
+    data: {
+      labels: ['January', 'February', 'March', 'April', 'May', 'June'],
+      datasets: [{
+        label: 'Conversion Rate',
+        data: [5, 10, 15, 20, 25, 30],
+        backgroundColor: 'rgba(79, 70, 229, 0.5)',
+        borderColor: 'rgba(79, 70, 229, 1)',
+        borderWidth: 1 }] },
+
+
+    options: {
+      scales: {
+        y: {
+          beginAtZero: true } } } });
+
+
+
+
+
+  // Sample data for token distribution chart
+  const tokenDistributionCtx = document.getElementById('tokenDistributionChart').getContext('2d');
+  const tokenDistributionChart = new Chart(tokenDistributionCtx, {
+    type: 'bar',
+    data: {
+      labels: ['Token A', 'Token B', 'Token C'],
+      datasets: [{
+        label: 'Number of Tokens',
+        data: [50, 150, 100],
+        backgroundColor: [
+        'rgba(255, 99, 132, 0.5)',
+        'rgba(54, 162, 235, 0.5)',
+        'rgba(255, 206, 86, 0.5)'],
+
+        borderColor: [
+        'rgba(255, 99, 132, 1)',
+        'rgba(54, 162, 235, 1)',
+        'rgba(255, 206, 86, 1)'],
+
+        borderWidth: 1 }] },
+
+
+    options: {
+      scales: {
+        y: {
+          beginAtZero: true } } } });
+
+
+
+
+});
+//# sourceURL=pen.js
+    </script>
+
+  
+  <script src="https://cpwebassets.codepen.io/assets/editor/iframe/iframeRefreshCSS-44fe83e49b63affec96918c9af88c0d80b209a862cf87ac46bc933074b8c557d.js"></script>
+</body>
+
+</html>

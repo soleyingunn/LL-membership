@@ -1,21 +1,338 @@
-<main class="details not-team logged-in">
-<div id="react-page"></div>
 
-  <input type="checkbox" class="modal-closing-trick" id="modal-closing-trick">
+<!DOCTYPE html>
+<html lang="en" >
 
-  <div class="overlay noscript-overlay" style="display: block;"></div>
+<head>
+  <meta charset="UTF-8">
+  
 
-  <div class="modal modal-message group modal-warning">
+    <link rel="apple-touch-icon" type="image/png" href="https://cpwebassets.codepen.io/assets/favicon/apple-touch-icon-5ae1a0698dcc2402e9712f7d01ed509a57814f994c660df9f7a952f3060705ee.png" />
 
-    <div class="modal-title">CodePen doesn't work very well without JavaScript.</div>
+    <meta name="apple-mobile-web-app-title" content="CodePen">
 
-    <p>We're all for progressive enhancement, but CodePen is a bit unique in that it's all about writing and showing front end code, including JavaScript. It's required to use most of the features of CodePen.</p>
+    <link rel="shortcut icon" type="image/x-icon" href="https://cpwebassets.codepen.io/assets/favicon/favicon-aec34940fbc1a6e787974dcd360f2c6b63348d4b1f4e06c77743096d55480f33.ico" />
 
-    <p>Need to know how to enable it? <a href="http://enable-javascript.com/" target="_blank" rel="noopener">Go here.</a></p>
+    <link rel="mask-icon" type="image/x-icon" href="https://cpwebassets.codepen.io/assets/favicon/logo-pin-b4b4269c16397ad2f0f7a01bcdf513a1994f4c94b8af2f191c09eb0d601762b1.svg" color="#111" />
 
-    <label class="button button-medium" for="modal-closing-trick">Close this, use anyway.</label>
 
+
+  <meta name="robots" content="noindex">
+  
+    <script src="https://cpwebassets.codepen.io/assets/common/stopExecutionOnTimeout-2c7831bb44f98c1391d6a4ffda0e1fd302503391ca806e7fcc7b9b87197aec26.js"></script>
+
+
+  <title>CodePen - LoyaltyRewards</title>
+
+    <link rel="canonical" href="https://codepen.io/sschepis/pen/xxBVbZB/8a2d71718abfd16935f545acf4e5313e">
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+
+  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css'>
+  
+<style>
+@media (max-width: 640px) {
+  /* Tailwind's 'sm' breakpoint */
+  /* Adjust layout and sizing for mobile devices */
+}
+</style>
+
+  
+  
+  
+</head>
+
+<body translate="no">
+  <!--
+Here's a detailed to-do list for the remaining items on the "Sales and Analytics" page, assuming the basic structure is in place with Tailwind CSS:
+
+1. **KPI Cards Completion:**
+   - Add icons or illustrations to each KPI card for a visual representation of the data.
+   - Implement dynamic data fetching to display real-time statistics on sales, redemptions, and affiliate performance.
+
+2. **Sales Trend Graphs:**
+   - Integrate Chart.js or a similar library to create interactive sales trend graphs.
+   - Set up filters for time range adjustments (e.g., day, week, month, year).
+
+3. **Affiliate Performance Tracker:**
+   - Design and implement an affiliate leaderboard or sortable table with key performance metrics.
+   - Add functionality for sorting and filtering affiliates based on performance criteria.
+
+4. **Custom Report Generator:**
+   - Develop a form allowing users to customize report parameters such as date range, token type, and affiliates.
+   - Enable backend integration for generating and retrieving reports based on user selections.
+
+5. **Engagement Metrics Visuals:**
+   - Create visual charts for user engagement metrics like session duration, click-through rates, and conversions.
+   - Allow users to interact with the charts to view detailed data points.
+
+6. **Token Popularity Index:**
+   - Design a system to track and display the popularity of tokens, possibly as a chart or a list.
+   - Implement sorting features to view tokens by most redeemed, most sold, etc.
+
+7. **ROI Calculator:**
+   - Develop an interactive ROI calculator with form inputs for cost, earnings, and other variables.
+   - Provide visual feedback on the calculated ROI, such as a dynamic bar graph or pie chart.
+
+8. **Downloadable Reports:**
+   - Implement functionality for users to download generated reports in formats like CSV, PDF, or Excel.
+   - Ensure the correct formatting and styling of the downloadable documents.
+
+9. **Responsive Design Check:**
+   - Review and test the responsiveness of the entire "Sales and Analytics" section.
+   - Adjust Tailwind classes as needed to ensure a seamless experience across devices.
+
+10. **UI Refinements:**
+    - Review the overall UI for consistency in design, such as margins, paddings, and font sizes.
+    - Add hover states, active states, and focus states to interactive elements for accessibility.
+
+11. **Testing and Debugging:**
+    - Perform thorough testing of all interactive elements, including buttons, dropdowns, and input fields.
+    - Debug any issues that arise during testing and polish the UX.
+
+12. **Documentation and Help Guides:**
+    - Prepare user documentation explaining how to use the "Sales and Analytics" features.
+    - Add tooltips or help icons that provide in-context guidance to users.
+
+13. **Accessibility Audit:**
+    - Conduct an accessibility audit to ensure the UI is compliant with WCAG standards.
+    - Implement necessary changes to enhance accessibility, such as keyboard navigation and screen reader support.
+
+14. **Performance Optimization:**
+    - Optimize the loading times for graphs and reports.
+    - Ensure efficient data fetching and rendering strategies to handle large datasets.
+
+This to-do list covers the key UI development aspects and ensures that the user interface provides a comprehensive, interactive, and user-friendly experience. Each item should be prioritized based on the project requirements and user needs.
+-->
+
+<body class="bg-gray-900 text-white">
+
+  <!-- Navigation Bar -->
+  <nav class="bg-gray-800">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16">
+        <!-- Logo and Brand Name -->
+        <div class="flex items-center">
+          <div class="flex-shrink-0">
+            <img class="h-8 w-8" src="https://placehold.co/40x40" alt="Logo">
+          </div>
+          <div class="hidden md:block">
+            <div class="ml-10 flex items-baseline space-x-4">
+              <!-- Navigation Links -->
+              <a href="/dashboard" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Dashboard</a>
+              <a href="/tokens" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Tokens</a>
+              <a href="/campaigns" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Campaigns</a>
+              <a href="/reports" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Reports</a>
+              <!-- More links as needed -->
+            </div>
+          </div>
+        </div>
+        <!-- Profile/Settings Dropdown -->
+        <div class="ml-3 relative">
+          <div>
+            <button class="max-w-xs bg-gray-800 rounded-full flex items-center text-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white" id="user-menu" aria-haspopup="true">
+              <span class="sr-only">Open user menu</span>
+              <img class="h-8 w-8 rounded-full" src="https://placehold.co/40x40" alt="">
+            </button>
+          </div>
+          <!-- Dropdown Menu -->
+          <div class="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5 hidden" role="menu" aria-orientation="vertical" aria-labelledby="user-menu">
+            <a href="/profile" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem">Your Profile</a>
+            <a href="/settings" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem">Settings</a>
+            <a href="/logout" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem">Sign out</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Analytics and Reporting -->
+  <div class="p-6">
+  <div class="bg-gray-900 text-white p-6">
+    <h2 class="text-2xl font-bold mb-4">Analytics and Reporting</h2>
+
+    <div class="bg-gray-800 p-4 rounded-lg shadow-lg mb-6">
+      <h3 class="text-lg text-gray-400 mb-2">Create Report</h3>
+      <form>
+        <!-- Date Range -->
+        <div class="mb-4">
+          <label class="block text-sm font-medium text-gray-200">Date Range</label>
+          <div class="mt-1 grid grid-cols-1 md:grid-cols-2 gap-4">
+            <input type="date" class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500">
+            <input type="date" class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500">
+          </div>
+        </div>
+
+        <!-- Token Type Selection -->
+        <div class="mb-4">
+          <label class="block text-sm font-medium text-gray-200">Token Type</label>
+          <select class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500">
+            <option value="token1">Token Type 1</option>
+            <option value="token2">Token Type 2</option>
+            <!-- More token types -->
+          </select>
+        </div>
+
+        <!-- Affiliate Selection -->
+        <div class="mb-4">
+          <label class="block text-sm font-medium text-gray-200">Affiliate</label>
+          <select class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500">
+            <option value="affiliate1">Affiliate 1</option>
+            <option value="affiliate2">Affiliate 2</option>
+            <!-- More affiliates -->
+          </select>
+        </div>
+
+        <!-- Submit Button -->
+        <div class="flex justify-end">
+          <button type="submit" class="px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white font-bold rounded-lg shadow-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50">
+            Generate Report
+          </button>
+        </div>
+      </form>
+    </div>
+
+    <!-- Engagement Metrics Visuals -->
+    <div class="bg-gray-800 p-4 rounded-lg shadow-lg mb-6">
+      <h3 class="text-lg text-gray-400 mb-2">User Engagement</h3>
+      <canvas id="engagementMetricsChart" class="h-64">
+        <!-- Chart.js Graph Placeholder -->
+      </canvas>
+    </div>
+
+    <!-- Token Popularity Index -->
+    <div class="bg-gray-800 p-4 rounded-lg shadow-lg mb-6">
+      <h3 class="text-lg text-gray-400 mb-2">Token Popularity</h3>
+      <canvas id="tokenPopularityIndex" class="h-64">
+        <!-- Popularity index visual -->
+      </canvas>
+    </div>
+
+<div class="bg-gray-800 p-4 rounded-lg shadow-lg mb-6">
+  <h3 class="text-lg text-gray-400 mb-2">ROI Calculator</h3>
+  <form id="roiCalculator">
+    <!-- Cost Input -->
+    <div class="mb-4">
+      <label class="block text-sm font-medium text-gray-200">Cost</label>
+      <input type="number" id="cost" class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none" placeholder="Enter cost">
+    </div>
+
+    <!-- Earnings Input -->
+    <div class="mb-4">
+      <label class="block text-sm font-medium text-gray-200">Earnings</label>
+      <input type="number" id="earnings" class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none" placeholder="Enter earnings">
+    </div>
+
+    <!-- Calculate Button -->
+    <div class="mb-4 flex justify-end">
+      <button type="button" onclick="calculateROI()" class="px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white font-bold rounded-lg shadow-md focus:outline-none">
+        Calculate ROI
+      </button>
+    </div>
+
+    <!-- ROI Display -->
+    <div class="mt-4">
+      <label class="block text-sm font-medium text-gray-200">ROI</label>
+      <div id="roiResult" class="mt-1 p-3 bg-gray-700 rounded-md text-white">Result will appear here</div>
+    </div>
+  </form>
+</div>
+
+    <!-- Downloadable Reports -->
+    <div class="bg-gray-800 p-4 rounded-lg shadow-lg flex justify-end">
+      <button class="text-white bg-blue-600 hover:bg-blue-700 px-4 py-2 rounded transition duration-300">
+        Download Report
+      </button>
+    </div>
   </div>
+  </div>
+  <!-- Footer -->
+  <footer class="bg-gray-800 text-white">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+      <div class="flex justify-between items-center">
+        <div>
+          <p>&copy; 2024 Your Company Name. All Rights Reserved.</p>
+        </div>
+        <div class="flex space-x-4">
+          <a href="/about" class="hover:underline">About</a>
+          <a href="/privacy-policy" class="hover:underline">Privacy Policy</a>
+          <a href="/terms-of-service" class="hover:underline">Terms of Service</a>
+          <a href="/contact" class="hover:underline">Contact Us</a>
+        </div>
+      </div>
+    </div>
+  </footer>
 
-</main>
+</body>
+  <script src='https://cdn.jsdelivr.net/npm/chart.js'></script>
+      <script id="rendered-js" >
+document.addEventListener("DOMContentLoaded", function () {
+  var ctx = document.getElementById("engagementMetricsChart").getContext("2d");
+  var userEngagementChart = new Chart(ctx, {
+    type: "line", // Type of chart: line chart
+    data: {
+      labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun"], // Example labels (months)
+      datasets: [
+      {
+        label: "User Engagement",
+        data: [65, 59, 80, 81, 56, 55, 40], // Example data
+        fill: false,
+        borderColor: "rgb(75, 192, 192)",
+        tension: 0.1 }] },
 
+
+
+    options: {
+      scales: {
+        y: {
+          beginAtZero: true } } } });
+
+
+
+
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+  var ctx = document.getElementById("tokenPopularityIndex").getContext("2d");
+  var tokenPopularityChart = new Chart(ctx, {
+    type: "bar",
+    data: {
+      labels: ["Token A", "Token B", "Token C", "Token D"], // Replace with actual token names
+      datasets: [
+      {
+        label: "Popularity",
+        data: [50, 60, 70, 85], // Replace with actual popularity data
+        backgroundColor: [
+          // Add colors for each bar
+        ],
+        borderColor: [
+          // Add border colors for each bar
+        ],
+        borderWidth: 1 }] },
+
+
+
+    options: {
+      scales: {
+        y: {
+          beginAtZero: true } } } });
+
+
+
+
+});
+
+function calculateROI() {
+  var cost = document.getElementById("cost").value;
+  var earnings = document.getElementById("earnings").value;
+  var roi = (earnings - cost) / cost * 100;
+
+  document.getElementById("roiResult").textContent = roi.toFixed(2) + "%";
+}
+//# sourceURL=pen.js
+    </script>
+
+  
+  <script src="https://cpwebassets.codepen.io/assets/editor/iframe/iframeRefreshCSS-44fe83e49b63affec96918c9af88c0d80b209a862cf87ac46bc933074b8c557d.js"></script>
+</body>
+
+</html>

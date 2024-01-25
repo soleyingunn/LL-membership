@@ -1,20 +1,319 @@
-<main class="details not-team logged-in">
-<div id="react-page"></div>
+  <!--
+To further enhance the Affiliate Management page, we can consider adding several additional features and improvements:
 
-  <input type="checkbox" class="modal-closing-trick" id="modal-closing-trick">
+1. **Advanced Search and Filtering**: Implement a more sophisticated search and filtering system to allow users to quickly find specific affiliates based on various criteria like performance, region, or status.
 
-  <div class="overlay noscript-overlay" style="display: block;"></div>
+2. **Bulk Actions**: Add functionality for bulk actions, such as activating, deactivating, or updating multiple affiliates simultaneously. This could be implemented through checkboxes next to each affiliate entry and a dropdown or button group for bulk operations.
 
-  <div class="modal modal-message group modal-warning">
+3. **Detailed Performance Analytics**: Integrate detailed performance analytics for each affiliate, which could include graphs and charts displaying metrics like click-through rates, conversion rates, and earnings over time.
 
-    <div class="modal-title">CodePen doesn't work very well without JavaScript.</div>
+4. **Responsive Design Enhancements**: Ensure that the layout, tables, and modals are fully responsive and provide a seamless experience on all devices, including tablets and smartphones.
 
-    <p>We're all for progressive enhancement, but CodePen is a bit unique in that it's all about writing and showing front end code, including JavaScript. It's required to use most of the features of CodePen.</p>
+5. **Export Functionality**: Provide options to export affiliate data, such as performance metrics or contact details, in various formats like CSV or Excel.
 
-    <p>Need to know how to enable it? <a href="http://enable-javascript.com/" target="_blank" rel="noopener">Go here.</a></p>
+6. **Notifications and Alerts**: Implement a system for notifications and alerts, for instance, when a new affiliate joins, reaches certain performance milestones, or requires attention.
 
-    <label class="button button-medium" for="modal-closing-trick">Close this, use anyway.</label>
+7. **Integration with Email Marketing Tools**: For the Invite Affiliates section, consider integrating with popular email marketing tools to streamline the invitation process.
+
+8. **Customizable Commission Structures**: Allow custom commission structures to be set for different affiliates or groups of affiliates, possibly with a visual interface for easy adjustments.
+
+9. **Interactive Dashboards**: Create interactive dashboards for a quick overview of the affiliate program's health, highlighting key metrics like total earnings, top performers, and recent activity.
+
+10. **Affiliate Onboarding Flow**: Develop a guided onboarding flow for new affiliates, which could include instructional videos, FAQs, and resource links.
+
+11. **User Feedback Collection**: Incorporate a mechanism for collecting feedback from users managing affiliates, to continually improve the interface and functionality based on real user needs.
+
+12. **Security Measures**: Ensure robust security measures are in place, especially for actions that involve changes to affiliate statuses or personal data.
+
+13. **API Integrations**: If your system interacts with other platforms, ensure seamless API integrations for data synchronization and workflow automation.
+
+14. **Comprehensive Testing**: Perform comprehensive testing, including usability testing, performance testing, and security audits.
+
+15. **Accessibility Compliance**: Ensure the page is accessible according to WCAG standards, which includes keyboard navigation, screen reader support, and proper color contrast.
+
+-->
+
+<!DOCTYPE html>
+<html lang="en" >
+
+<head>
+  <meta charset="UTF-8">
+  
+
+    <link rel="apple-touch-icon" type="image/png" href="https://cpwebassets.codepen.io/assets/favicon/apple-touch-icon-5ae1a0698dcc2402e9712f7d01ed509a57814f994c660df9f7a952f3060705ee.png" />
+
+    <meta name="apple-mobile-web-app-title" content="CodePen">
+
+    <link rel="shortcut icon" type="image/x-icon" href="https://cpwebassets.codepen.io/assets/favicon/favicon-aec34940fbc1a6e787974dcd360f2c6b63348d4b1f4e06c77743096d55480f33.ico" />
+
+    <link rel="mask-icon" type="image/x-icon" href="https://cpwebassets.codepen.io/assets/favicon/logo-pin-b4b4269c16397ad2f0f7a01bcdf513a1994f4c94b8af2f191c09eb0d601762b1.svg" color="#111" />
+
+
+
+  <meta name="robots" content="noindex">
+  
+    <script src="https://cpwebassets.codepen.io/assets/common/stopExecutionOnTimeout-2c7831bb44f98c1391d6a4ffda0e1fd302503391ca806e7fcc7b9b87197aec26.js"></script>
+
+
+  <title>CodePen - Affiliates</title>
+
+    <link rel="canonical" href="https://codepen.io/sschepis/pen/KKEVJEp/68820eb74e3e0cb6ae88dfef95aa13b6">
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+
+  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css'>
+  
+
+  
+  
+  
+</head>
+
+<body translate="no">
+  <!--
+To further enhance the Affiliate Management page, we can consider adding several additional features and improvements:
+
+1. **Advanced Search and Filtering**: Implement a more sophisticated search and filtering system to allow users to quickly find specific affiliates based on various criteria like performance, region, or status.
+
+2. **Bulk Actions**: Add functionality for bulk actions, such as activating, deactivating, or updating multiple affiliates simultaneously. This could be implemented through checkboxes next to each affiliate entry and a dropdown or button group for bulk operations.
+
+3. **Detailed Performance Analytics**: Integrate detailed performance analytics for each affiliate, which could include graphs and charts displaying metrics like click-through rates, conversion rates, and earnings over time.
+
+4. **Responsive Design Enhancements**: Ensure that the layout, tables, and modals are fully responsive and provide a seamless experience on all devices, including tablets and smartphones.
+
+5. **Export Functionality**: Provide options to export affiliate data, such as performance metrics or contact details, in various formats like CSV or Excel.
+
+6. **Notifications and Alerts**: Implement a system for notifications and alerts, for instance, when a new affiliate joins, reaches certain performance milestones, or requires attention.
+
+7. **Integration with Email Marketing Tools**: For the Invite Affiliates section, consider integrating with popular email marketing tools to streamline the invitation process.
+
+8. **Customizable Commission Structures**: Allow custom commission structures to be set for different affiliates or groups of affiliates, possibly with a visual interface for easy adjustments.
+
+9. **Interactive Dashboards**: Create interactive dashboards for a quick overview of the affiliate program's health, highlighting key metrics like total earnings, top performers, and recent activity.
+
+10. **Affiliate Onboarding Flow**: Develop a guided onboarding flow for new affiliates, which could include instructional videos, FAQs, and resource links.
+
+11. **User Feedback Collection**: Incorporate a mechanism for collecting feedback from users managing affiliates, to continually improve the interface and functionality based on real user needs.
+
+12. **Security Measures**: Ensure robust security measures are in place, especially for actions that involve changes to affiliate statuses or personal data.
+
+13. **API Integrations**: If your system interacts with other platforms, ensure seamless API integrations for data synchronization and workflow automation.
+
+14. **Comprehensive Testing**: Perform comprehensive testing, including usability testing, performance testing, and security audits.
+
+15. **Accessibility Compliance**: Ensure the page is accessible according to WCAG standards, which includes keyboard navigation, screen reader support, and proper color contrast.
+
+-->
+<body class="bg-gray-900 text-white">
+  
+    <!-- Navigation Bar -->
+    <nav class="bg-gray-800">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center justify-between h-16">
+          <!-- Logo and Brand Name -->
+          <div class="flex items-center">
+            <div class="flex-shrink-0">
+              <img class="h-8 w-8" src="https://placehold.co/40x40" alt="Logo">
+            </div>
+            <div class="hidden md:block">
+              <div class="ml-10 flex items-baseline space-x-4">
+                <!-- Navigation Links -->
+                <a href="/dashboard" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Dashboard</a>
+                <a href="/tokens" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Tokens</a>
+                <a href="/campaigns" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Campaigns</a>
+                <a href="/reports" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Reports</a>
+                <!-- More links as needed -->
+              </div>
+            </div>
+          </div>
+          <!-- Profile/Settings Dropdown -->
+          <div class="ml-3 relative">
+            <div>
+              <button class="max-w-xs bg-gray-800 rounded-full flex items-center text-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white" id="user-menu" aria-haspopup="true">
+                <span class="sr-only">Open user menu</span>
+                <img class="h-8 w-8 rounded-full" src="https://placehold.co/40x40" alt="">
+              </button>
+            </div>
+            <!-- Dropdown Menu -->
+            <div class="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5 hidden" role="menu" aria-orientation="vertical" aria-labelledby="user-menu">
+              <a href="/profile" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem">Your Profile</a>
+              <a href="/settings" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem">Settings</a>
+              <a href="/logout" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem">Sign out</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Rest of your page content -->
+    <div class="p-6">
+
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+        
+        <!-- Affiliate Profiles Section -->
+        <div class="bg-gray-800 rounded-lg shadow px-5 py-6 sm:px-6">
+          <h3 class="text-lg leading-6 font-medium text-gray-300 mb-4">Affiliate Profiles</h3>
+              <!-- Action Bar -->
+          <div>
+          <button onclick="openModal()" class="bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded-lg transition duration-300 mb-4">
+            Add Affiliate
+          </button>
+        </div>
+          <div class="flex flex-col mb-4">
+            <div class="overflow-x-auto sm:-mx-6 lg:-mx-8">
+              <div class="inline-block min-w-full sm:px-6 lg:px-8">
+                <div class="overflow-hidden">
+                  <table class="min-w-full">
+                    <thead class="bg-gray-700">
+                      <tr>
+                        <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-400 uppercase tracking-wider">
+                          Affiliate Name
+                        </th>
+                        <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-400 uppercase tracking-wider">
+                          Email
+                        </th>
+                        <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-400 uppercase tracking-wider">
+                          Status
+                        </th>
+                        <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-400 uppercase tracking-wider">
+                          Commission
+                        </th>
+                        <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-400 uppercase tracking-wider">
+                          Sales Generated
+                        </th>
+                        <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-400 uppercase tracking-wider">
+                          Actions
+                        </th>
+                      </tr>
+                    </thead>
+                    <tbody class="bg-gray-700 divide-y divide-gray-600">
+                      <!-- Dynamic Row Template -->
+                      <tr>
+                        <td class="px-6 py-4 whitespace-nowrap">
+                          John Doe
+                        </td>
+                        <td class="px-6 py-4 whitespace-nowrap">
+                          johndoe@example.com
+                        </td>
+                        <td class="px-6 py-4 whitespace-nowrap">
+                          Active
+                        </td>
+                        <td class="px-6 py-4 whitespace-nowrap">
+                          10%
+                        </td>
+                        <td class="px-6 py-4 whitespace-nowrap">
+                          $5,000
+                        </td>
+                        <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+                          <a href="#" class="text-indigo-600 hover:text-indigo-900">View</a>
+                          <a href="#" class="text-indigo-600 hover:text-indigo-900 ml-4">Edit</a>
+                          <a href="#" class="text-red-600 hover:text-red-900 ml-4">Deactivate</a>
+                        </td>
+                      </tr>
+                      <!-- Additional Rows -->
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Invite Affiliates Section -->
+        <div class="mt-8 bg-gray-800 rounded-lg shadow px-5 py-6 sm:px-6">
+          <h3 class="text-lg leading-6 font-medium text-gray-300">Invite Affiliates</h3>
+          <form class="space-y-6 mt-4">
+            <!-- Email Input -->
+            <div>
+              <!-- ... -->
+            </div>
+            <!-- Custom Message Input -->
+            <div>
+              <label for="customMessage" class="block text-sm font-medium text-gray-400">
+                Custom Message (optional)
+              </label>
+              <textarea id="customMessage" 
+                        name="customMessage" 
+                        rows="3" 
+                        placeholder="Add a personal message..." 
+                        class="mt-1 block w-full rounded-md bg-gray-700 border border-gray-600 text-white focus:outline-none focus:ring-2 focus:ring-indigo-500"></textarea>
+            </div>
+            <!-- Send Button -->
+            <button type="submit" 
+                    class="w-full flex justify-center items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-500 focus:outline-none">
+              Send Invite
+            </button>
+          </form>
+        </div>
+
+
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+        <div class="flex justify-between items-center">
+          <div>
+            <p>&copy; 2024 Your Company Name. All Rights Reserved.</p>
+          </div>
+          <div class="flex space-x-4">
+            <a href="/about" class="hover:underline">About</a>
+            <a href="/privacy-policy" class="hover:underline">Privacy Policy</a>
+            <a href="/terms-of-service" class="hover:underline">Terms of Service</a>
+            <a href="/contact" class="hover:underline">Contact Us</a>
+          </div>
+        </div>
+      </div>
+    </footer>
 
   </div>
-</main>
+  
+<!-- Add Affiliate Modal (hidden by default) -->
+<div id="addAffiliateModal" class="hidden fixed inset-0 bg-gray-600 bg-opacity-75 overflow-y-auto h-full w-full">
+  <!-- Modal content -->
+  <div class="container mx-auto p-8">
+    <div class="bg-white rounded shadow-lg w-full sm:w-1/2 mx-auto">
+      <!-- Modal header -->
+      <div class="border-b px-4 py-2 flex justify-between items-center">
+        <h3 class="font-semibold text-lg">Add New Affiliate</h3>
+        <button class="text-black close-modal">&times;</button>
+      </div>
+      <!-- Modal body -->
+      <div class="p-4">
+        <form id="addAffiliateForm">
+          <!-- Form fields for adding new affiliate -->
+          <input type="text" placeholder="Name" class="block w-full p-2 mb-4" />
+          <input type="email" placeholder="Email" class="block w-full p-2 mb-4" />
+          <input type="text" placeholder="Affiliate Code" class="block w-full p-2 mb-4" />
+          <!-- More fields as necessary -->
+          <button type="submit" class="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded">
+            Create Affiliate
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+  
+</body>
+  <script src='https://cdn.jsdelivr.net/npm/chart.js'></script>
+      <script id="rendered-js" >
+// Function to open the modal
+function openModal() {
+  document.getElementById('addAffiliateModal').classList.remove('hidden');
+}
 
+// Function to close the modal
+document.querySelectorAll('.close-modal').forEach(function (element) {
+  element.onclick = function () {
+    document.getElementById('addAffiliateModal').classList.add('hidden');
+  };
+});
+//# sourceURL=pen.js
+    </script>
+
+  
+  <script src="https://cpwebassets.codepen.io/assets/editor/iframe/iframeRefreshCSS-44fe83e49b63affec96918c9af88c0d80b209a862cf87ac46bc933074b8c557d.js"></script>
+</body>
+
+</html>

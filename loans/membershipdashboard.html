@@ -1,20 +1,360 @@
-<main class="details not-team logged-in">
-<div id="react-page"></div>
 
-  <input type="checkbox" class="modal-closing-trick" id="modal-closing-trick">
+<!DOCTYPE html>
+<html lang="en" >
 
-  <div class="overlay noscript-overlay" style="display: block;"></div>
+<head>
+  <meta charset="UTF-8">
+  
 
-  <div class="modal modal-message group modal-warning">
+    <link rel="apple-touch-icon" type="image/png" href="https://cpwebassets.codepen.io/assets/favicon/apple-touch-icon-5ae1a0698dcc2402e9712f7d01ed509a57814f994c660df9f7a952f3060705ee.png" />
 
-    <div class="modal-title">CodePen doesn't work very well without JavaScript.</div>
+    <meta name="apple-mobile-web-app-title" content="CodePen">
 
-    <p>We're all for progressive enhancement, but CodePen is a bit unique in that it's all about writing and showing front end code, including JavaScript. It's required to use most of the features of CodePen.</p>
+    <link rel="shortcut icon" type="image/x-icon" href="https://cpwebassets.codepen.io/assets/favicon/favicon-aec34940fbc1a6e787974dcd360f2c6b63348d4b1f4e06c77743096d55480f33.ico" />
 
-    <p>Need to know how to enable it? <a href="http://enable-javascript.com/" target="_blank" rel="noopener">Go here.</a></p>
+    <link rel="mask-icon" type="image/x-icon" href="https://cpwebassets.codepen.io/assets/favicon/logo-pin-b4b4269c16397ad2f0f7a01bcdf513a1994f4c94b8af2f191c09eb0d601762b1.svg" color="#111" />
 
-    <label class="button button-medium" for="modal-closing-trick">Close this, use anyway.</label>
+
+
+  <meta name="robots" content="noindex">
+  
+    <script src="https://cpwebassets.codepen.io/assets/common/stopExecutionOnTimeout-2c7831bb44f98c1391d6a4ffda0e1fd302503391ca806e7fcc7b9b87197aec26.js"></script>
+
+
+  <title>CodePen - Membership Dashboard</title>
+
+    <link rel="canonical" href="https://codepen.io/sschepis/pen/wvOMRvJ/7931b788f3eccbb215300045b7acee8a">
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+
+  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css'>
+  
+
+  
+  
+  
+</head>
+
+<body translate="no">
+  <body class="bg-gray-900 text-white">
+  <!-- Navigation Bar -->
+  <nav class="bg-gray-800">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16">
+        <!-- Logo and Brand Name -->
+        <div class="flex items-center">
+          <div class="flex-shrink-0">
+            <img class="h-8 w-8" src="https://placehold.co/40x40" alt="Logo">
+          </div>
+          <div class="hidden md:block">
+            <div class="ml-10 flex items-baseline space-x-4">
+              <!-- Navigation Links -->
+              <a href="/dashboard" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Dashboard</a>
+              <a href="/tokens" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Tokens</a>
+              <a href="/campaigns" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Campaigns</a>
+              <a href="/reports" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Reports</a>
+              <!-- More links as needed -->
+            </div>
+          </div>
+        </div>
+        <!-- Profile/Settings Dropdown -->
+        <div class="ml-3 relative">
+          <div>
+            <button class="max-w-xs bg-gray-800 rounded-full flex items-center text-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white" id="user-menu" aria-haspopup="true">
+              <span class="sr-only">Open user menu</span>
+              <img class="h-8 w-8 rounded-full" src="https://placehold.co/40x40" alt="">
+            </button>
+          </div>
+          <!-- Dropdown Menu -->
+          <div class="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5 hidden" role="menu" aria-orientation="vertical" aria-labelledby="user-menu">
+            <a href="/profile" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem">Your Profile</a>
+            <a href="/settings" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem">Settings</a>
+            <a href="/logout" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem">Sign out</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Rest of your page content -->
+  <div class="p-6">
+    <div class="max-w-6xl mx-auto p-6">
+
+      <!-- Enhanced Welcome Section with User Interaction -->
+      <div class="flex justify-between items-center mb-6">
+        <div>
+          <h1 class="text-4xl font-bold">Welcome Back, [User Name]</h1>
+          <p class="text-gray-400 mt-2">Your dashboard is updated with the latest token insights.</p>
+        </div>
+        <div class="space-x-4">
+          <button class="bg-green-600 hover:bg-green-700 text-white font-bold py-2 px-4 rounded-full">Create Token</button>
+          <button class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full">View Reports</button>
+        </div>
+      </div>
+
+      <!-- Total Tokens Minted and Additional Stats -->
+    <div class="grid grid-cols-4 gap-4 mb-6">
+  
+  <!-- Mini-card 1: Total Tokens Minted -->
+  <div class="bg-gray-800 rounded-2xl p-4">
+    <div class="flex flex-col items-center justify-between">
+      <h3 class="text-lg font-semibold text-gray-300">Total Tokens Minted</h3>
+      <p class="text-2xl font-bold text-white" id="totalTokensMinted">1,234</p>
+      <p class="text-sm text-gray-400">Updated just now</p>
+    </div>
+  </div>
+  
+  <!-- Mini-card 2: Minting Trends -->
+  <div class="bg-gray-800 rounded-2xl p-4">
+    <div class="flex flex-col items-center justify-between">
+      <h3 class="text-lg font-semibold text-gray-300">Minting Trends</h3>
+      <!-- Placeholder for Mini-Chart -->
+      <canvas id="miniMintingTrendChart" class="max-w-full h-24"></canvas>
+    </div>
+  </div>
+  
+  <!-- Mini-card 1: Total Tokens Minted -->
+  <div class="bg-gray-800 rounded-2xl p-4">
+    <div class="flex flex-col items-center justify-between">
+      <h3 class="text-lg font-semibold text-gray-300">Total Tokens Minted</h3>
+      <p class="text-2xl font-bold text-white" id="totalTokensMinted">1,234</p>
+      <p class="text-sm text-gray-400">Updated just now</p>
+    </div>
+  </div>
+  
+  <!-- Mini-card 2: Minting Trends -->
+  <div class="bg-gray-800 rounded-2xl p-4">
+    <div class="flex flex-col items-center justify-between">
+      <h3 class="text-lg font-semibold text-gray-300">Minting Trends</h3>
+      <!-- Placeholder for Mini-Chart -->
+      <canvas id="miniMintingTrendChart" class="max-w-full h-24"></canvas>
+    </div>
+  </div>
+  
+</div>
+
+      <!-- Enhanced Interactive Charts -->
+      <div class="grid lg:grid-cols-2 gap-6 mb-6">
+        <div class="bg-gray-800 rounded-2xl p-4 mb-6">
+          <h3 class="text-lg font-semibold text-gray-300 mb-4">Sales Trends</h3>
+          <div class="flex justify-between items-center mb-4">
+            <div class="flex space-x-2">
+              <!-- Time Range Selector and Filters -->
+              <div class="flex justify-between items-center mb-4">
+                <!-- Time Range Selector -->
+                <div class="flex space-x-2">
+                  <button class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Week</button>
+                  <button class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Month</button>
+                  <button class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Year</button>
+                </div>
+                <!-- Additional Filters or Controls -->
+                <button class="bg-green-600 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">Filter Data</button>
+              </div>
+
+            </div>
+          </div>
+          <div class="relative">
+            <canvas id="salesTrendChart"></canvas>
+          </div>
+        </div>
+
+        <!-- Token Usage Stats Chart -->
+        <div class="bg-gray-800 rounded-2xl p-4 mb-6">
+          <h3 class="text-lg font-semibold text-gray-300 mb-4">Token Usage Stats</h3>
+
+          <!-- Filters for Token Stats -->
+          <div class="flex justify-between items-center mb-4">
+            <!-- Token Type Filter -->
+            <div class="flex space-x-2">
+              <button class="bg-purple-600 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded">NFTs</button>
+              <button class="bg-purple-600 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded">Utility Tokens</button>
+              <button class="bg-purple-600 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded">Others</button>
+            </div>
+
+            <!-- Additional Filters or Controls -->
+            <button class="bg-green-600 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">Filter Data</button>
+          </div>
+
+          <!-- Chart Container -->
+          <div class="relative">
+            <canvas id="tokenUsageChart"></canvas>
+          </div>
+        </div>
+      </div>
+
+      <!-- Your Campaigns Section -->
+      <div class="bg-gray-800 rounded-2xl p-4 mb-6">
+          <h2 class="text-xl font-semibold mb-4 text-gray-300">Your Campaigns</h2>
+          <div class="overflow-hidden overflow-x-auto">
+              <table class="min-w-full text-sm divide-y divide-gray-700">
+                  <thead class="text-xs uppercase text-gray-400 bg-gray-700">
+                      <tr>
+                          <th scope="col" class="px-6 py-3">Campaign Name</th>
+                          <th scope="col" class="px-6 py-3">Status</th>
+                          <th scope="col" class="px-6 py-3">Tokens Distributed</th>
+                          <th scope="col" class="px-6 py-3">Actions</th>
+                      </tr>
+                  </thead>
+                  <tbody class="divide-y divide-gray-700">
+                      <!-- Campaign Row -->
+                      <tr class="bg-gray-700 hover:bg-gray-600">
+                          <td class="px-6 py-4">Campaign Name #1</td>
+                          <td class="px-6 py-4">Active</td>
+                          <td class="px-6 py-4">1,200</td>
+                          <td class="px-6 py-4 flex space-x-2">
+                              <button class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">View Details</button>
+                              <button class="bg-yellow-600 hover:bg-yellow-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">Edit</button>
+                              <button class="bg-red-600 hover:bg-red-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">Pause</button>
+                          </td>
+                      </tr>
+                      <!-- Repeat for other campaigns -->
+                  </tbody>
+              </table>
+          </div>
+      </div>
+      
+      <!-- Activity Stream Section -->
+      <div class="bg-gray-800 rounded-2xl p-4 mb-6">
+        <h2 class="text-xl font-semibold mb-4">Latest Activity</h2>
+        <div class="space-y-4 overflow-y-auto" style="max-height: 400px;">
+          <!-- Individual Activity Item -->
+          <div class="bg-gray-700 rounded-lg p-3 flex items-center space-x-4">
+            <div class="icon-placeholder">
+              <!-- Dynamic Icon based on activity type -->
+            </div>
+            <div>
+              <p class="text-sm text-gray-300">New token "Artwork Series" created</p>
+              <p class="text-xs text-gray-400">15 minutes ago</p>
+            </div>
+          </div>
+          <!-- Repeat for each activity -->
+          <div class="text-center mt-4">
+            <button class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full">
+              View All Activities
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Quick Navigation Panel -->
+      <div class="flex justify-between bg-gray-800 p-4 rounded-2xl">
+        <!-- Navigation Shortcut 1 -->
+        <button class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded-full transition duration-300" onclick="location.href='/create-token'">
+          Create Token
+        </button>
+
+        <!-- Navigation Shortcut 2 -->
+        <button class="bg-purple-500 hover:bg-purple-600 text-white font-bold py-2 px-4 rounded-full transition duration-300" onclick="location.href='/campaigns'">
+          Manage Campaigns
+        </button>
+
+        <!-- Navigation Shortcut 3 -->
+        <button class="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded-full transition duration-300" onclick="location.href='/analytics'">
+          View Analytics
+        </button>
+
+        <!-- Navigation Shortcut 4 -->
+        <button class="bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded-full transition duration-300" onclick="location.href='/reports'">
+          Generate Reports
+        </button>
+
+        <!-- More Shortcuts as Needed -->
+      </div>
+
+    </div>
+    <!-- Main Content -->
+    <div class="p-6">
+      <!-- ... Your content above ... -->
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+        <div class="flex justify-between items-center">
+          <div>
+            <p>&copy; 2024 Your Company Name. All Rights Reserved.</p>
+          </div>
+          <div class="flex space-x-4">
+            <a href="/about" class="hover:underline">About</a>
+            <a href="/privacy-policy" class="hover:underline">Privacy Policy</a>
+            <a href="/terms-of-service" class="hover:underline">Terms of Service</a>
+            <a href="/contact" class="hover:underline">Contact Us</a>
+          </div>
+        </div>
+      </div>
+    </footer>
 
   </div>
-</main>
+  <script src='https://cdn.jsdelivr.net/npm/chart.js'></script>
+      <script id="rendered-js" type="module">
+// import { Chart } from "https://esm.sh/chart.js";
 
+const ctx = document.getElementById("salesTrendChart").getContext("2d");
+const salesTrendChart = new Chart(ctx, {
+  type: "line",
+  data: {
+    labels: ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"],
+    datasets: [
+    {
+      label: "Weekly Sales",
+      data: [12, 19, 3, 5, 2, 3, 9],
+      backgroundColor: "rgba(75, 192, 192, 0.2)",
+      borderColor: "rgba(75, 192, 192, 1)",
+      borderWidth: 1 }] },
+
+
+
+  options: {
+    scales: {
+      y: {
+        beginAtZero: true } } } });
+
+
+
+
+
+// Add event listeners for buttons to update the chart
+document.querySelectorAll(".time-range-selector button").forEach(button => {
+  button.addEventListener("click", e => {
+    // Logic to update chart based on selected time range
+    // This would involve fetching new data and updating the chart
+  });
+});
+
+const tokenCtx = document.getElementById("tokenUsageChart").getContext("2d");
+const tokenUsageChart = new Chart(tokenCtx, {
+  type: "bar",
+  data: {
+    labels: ["Token A", "Token B", "Token C", "Token D"],
+    datasets: [
+    {
+      label: "Usage Count",
+      data: [50, 75, 150, 100],
+      backgroundColor: [
+      "rgba(255, 99, 132, 0.2)",
+      "rgba(54, 162, 235, 0.2)",
+      "rgba(255, 206, 86, 0.2)",
+      "rgba(75, 192, 192, 0.2)"],
+
+      borderColor: [
+      "rgba(255, 99, 132, 1)",
+      "rgba(54, 162, 235, 1)",
+      "rgba(255, 206, 86, 1)",
+      "rgba(75, 192, 192, 1)"],
+
+      borderWidth: 1 }] },
+
+
+
+  options: {
+    scales: {
+      y: {
+        beginAtZero: true } } } });
+//# sourceURL=pen.js
+    </script>
+
+  
+  <script src="https://cpwebassets.codepen.io/assets/editor/iframe/iframeRefreshCSS-44fe83e49b63affec96918c9af88c0d80b209a862cf87ac46bc933074b8c557d.js"></script>
+</body>
+
+</html>
